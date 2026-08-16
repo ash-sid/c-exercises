@@ -20,6 +20,7 @@ int main(void) {
             printf("%d %d\n", i, i + 2);
         }
     }
+    printf("gcd(48,18) = %d\n", gcd(48, 18));
 }
 
 bool is_prime(int n) {
@@ -39,9 +40,9 @@ bool is_prime(int n) {
 int gcd(int a, int b) {
     // Keep looping until the second number becomes 0
     while(b != 0) {
-        int temp = b; // Find the remainder of a divided by b
-        b %= a;       // Move b into a for the next iteration
-        a = temp;     // Move the remainder into b
+        int temp = b; // Store current value of b
+        b = a % b;    // Set b to the remainder of a / b
+        a = temp;     // Set a to the previous value of b
     }
 
     // When b becomes 0, a holds the final GCD value
